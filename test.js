@@ -6,5 +6,4 @@ Proton.on("Tick", (Event) => {
     console.log("e")
 })
 
-Proton.__Ticking = true
-requestAnimationFrame(Proton.tick)
+Proton.start()
