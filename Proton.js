@@ -1,5 +1,5 @@
 var Proton = {
-    __TickData: {
+    __TickData: { // tick time not made yet 
         TickCount: 0,
         TickTime: 0,
     },
@@ -8,8 +8,8 @@ var Proton = {
     __Ticking: false,
     
     plotFunction: (Equation, Accuracy) => {
-        let Max = 10*Accuracy
-        let EquationLatex = `(-10,${Equation(-Max)})`
+        var Max = 10*Accuracy
+        var EquationLatex = `(-10,${Equation(-Max)})`
         
         for (let X = (-Max)+1; X < Max; X++) {
             EquationLatex += `,(${X/Accuracy},${Equation(X/Accuracy)})`
@@ -26,7 +26,7 @@ var Proton = {
 
     on: (Event, Function) => {
         switch ( Event) {
-            case ("Tick") : {
+            case ("Tick") : { // more soon
                 Proton.__TickFunction = Function
                 break
             }
@@ -34,6 +34,15 @@ var Proton = {
     },
     
     tick: undefined,
+
+    start: () => {
+        Proton.__Ticking = true
+        requestAnimationFrame(Proton.tick)
+    },
+
+    pause: () => {
+        Proton.__Ticking = false
+    },
 }
 
 Proton.tick = () => {
@@ -43,3 +52,15 @@ Proton.tick = () => {
         requestAnimationFrame(Proton.tick)
     }
 }
+
+// tests
+
+Proton.plotFunction((x) => {
+    return 2**x
+}, 10)
+
+Proton.on("Tick", (Event) => {
+    console.log("e")
+})
+
+Proton.start()
