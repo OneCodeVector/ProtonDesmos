@@ -7,3 +7,7 @@ Desmos api wrapper that extends the functions of the graphing calculator
 * I am looking for someone to help me comment my code, as that is one thing I am working on but still very bad at.  
 * Descided to use JS because, my C habits make me over complicate the TS code.  
 * Empty functions are in development and to be added soon.
+
+# Credits
+* NotAnDonkey#6764 (me) | started project, 3d code, proton syntax hilighting, proton core
+* NecroMonster#7054     | taught me 3d graphics math
